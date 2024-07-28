@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+{/*import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import categories from '../data/categories.json'
 import CategoryItem from './CategoryItem'
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   container: {
     width: '100%'
 }
-})
+})*/}

@@ -14,13 +14,17 @@ export default Header
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.darkGray,
+        backgroundColor: colors.darkBlue,
         height: 100,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     text: {
+        fontFamily: 'Lato',
         fontSize: 30,
-        marginTop: 45
+        margin: 10,
+        color: colors.White,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })

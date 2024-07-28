@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Card from './Card'
+import { colors } from '../global/colors'
 
 const CategoryItem = ({category}) => {
     return (
-        <>
-        <Text style={styles.text}>{category}</Text>
-        </>
+        <Card style={styles.cardContainer}>
+            <Text style={styles.text}>{category}</Text>
+        </Card>
     )
     }
 
@@ -21,5 +23,6 @@ const styles = StyleSheet.create({
     }, 
     text: {
         fontSize: 20,
+        color: colors.White
     }
 })
