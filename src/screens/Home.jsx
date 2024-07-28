@@ -26,7 +26,7 @@ export default Home
 const styles = StyleSheet.create({
     flatListContainer: {
         width: "100%",
-        backgroundColor: colors.White,
+        backgroundColor: colors.lightBlue,
         flex: 1,
         flexDirection: "column",
         justifyContent: "center",

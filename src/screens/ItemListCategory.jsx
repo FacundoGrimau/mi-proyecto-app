@@ -14,14 +14,21 @@ const ItemListCategory = ({categorySelected = "", setCategorySelected = () => {}
     console.log(categorySelected);
 
     useEffect(() => {
-        const regex= /\d/
-        const Digits = (regex.test(keyWord))
-        console.log(Digits);
-
-        if (Digits) {
-            setError("No ingresar digitos")
-            return
+        const regexDigits= /\d/;
+        const hasDigits = (regexDigits.test(keyWord));
+        if (hasDigits) {
+            setError("¡ No ingresar digitos !")
+            return;
         }
+
+        const regexThreeOrMoreCharacters = /[a-zA-Z]{3,}/;
+        const hasThreeOrMoreCharacters = (regexThreeOrMoreCharacters.test(keyWord));
+        if (!hasThreeOrMoreCharacters && keyWord.length) {
+            setError(" ¡Ingresar tres o mas caracteres!")
+            return;
+        }
+
+        console.log(error);
 
         const productsPreFiltered = products.filter(
             (product) => product.category === categorySelected
@@ -32,16 +39,16 @@ const ItemListCategory = ({categorySelected = "", setCategorySelected = () => {}
         )
         console.log(productsfilter);
         setProductsFiltered(productsfilter)
-    
+        setError('')
     }, [keyWord, categorySelected])
 
     return (
         <View>
             <Search
+                error={error}
                 onSearch={setKeyword}
                 goBack={() => setCategorySelected("")}
             />
-            <Text>{error}</Text>
             <FlatList
                 data={productsFiltered}
                 renderItem={({item}) => <ProductItem product={item}/>}

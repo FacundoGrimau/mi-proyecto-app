@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: 'Lato',
-        fontSize: 25,
+        fontSize: 28,
         margin: 10,
         color: colors.White
     }
