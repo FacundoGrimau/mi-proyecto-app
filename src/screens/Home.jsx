@@ -6,7 +6,7 @@ import Categories from '../components/Categories'
 const Home = () => {
   return (
     <View style={{width: '100%'}}>
-      <Header title={Categorias}/>
+      <Header title={'Categorias'}/>
       <Categories/>
     </View>
   )
