@@ -4,32 +4,33 @@ import categories from '../data/categories.json'
 import CategoryItem from '../components/CategoryItem'
 import { colors } from '../global/colors'
 
-const Home = () => {
-  return (
-    <View style={styles.flatListContainer}>
-      <FlatList
-        keyExtractor={category => category}
-        data={categories}
-        renderItem={({item}) =>
-          <CategoryItem 
-            category={item}
-          />
-        }
-      />
-    </View>
-  )
+const Home = ({setCategorySelected}) => {
+    return (
+        <View style={styles.flatListContainer}>
+            <FlatList
+                keyExtractor={category => category}
+                data={categories}
+                renderItem={({item}) =>
+                <CategoryItem 
+                    category={item}
+                    selectCategory={setCategorySelected}
+                />
+                }
+            />
+        </View>
+    )
 }
 
 export default Home
 
 const styles = StyleSheet.create({
     flatListContainer: {
-      width: "100%",
-      backgroundColor: colors.White,
-      flex: 1,
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: 10,
+        width: "100%",
+        backgroundColor: colors.White,
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 10,
     },
-  });
+});

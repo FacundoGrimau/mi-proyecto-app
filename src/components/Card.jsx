@@ -15,13 +15,17 @@ export default Card
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.blue,
-        shadowColor: "#000",
+        width: 250,
+        height: 50,
+        shadowColor: colors.darkGray,
         shadowOffset: {
-            width: 0,
-            height: 6,
+            width: 5,
+            height: 5,
         },
-        shadowOpacity: 0.37,
+        shadowOpacity: 0.40,
         shadowRadius: 7.49,
-        elevation: 12,
-        },
-    });
+        elevation: 5,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+});

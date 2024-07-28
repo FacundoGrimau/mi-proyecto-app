@@ -4,8 +4,9 @@ import Home from './src/screens/Home';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import Header from './src/components/Header';
+import ItemListCategory from './src/screens/ItemListCategory';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -18,10 +19,16 @@ export default function App() {
     }
   }, [fontsLoaded, fontError]);
 
+  const [categorySelected, setCategorySelected] = useState('')
+
   return (
     <View style={styles.container}>
       <Header title="Titulo"/>
-      <Home/>
+      {!categorySelected ? (
+        <Home setCategorySelected={setCategorySelected}/>
+      ) : (
+        <ItemListCategory setCategorySelected={setCategorySelected} categorySelected={categorySelected}/>
+      )}
     </View>
   );
 }
@@ -30,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.lightBlue,
+    marginTop: 50,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });

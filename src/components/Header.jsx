@@ -8,7 +8,7 @@ const Header = ({title}) => {
             <Text style={styles.text}>{title}</Text>
         </View>
     )
-    }
+}
 
 export default Header
 
@@ -16,16 +16,14 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.darkBlue,
         width: '100%',
-        height: 100,
+        height: 75,
         justifyContent: 'center',
         alignItems: 'center'
     },
     text: {
         fontFamily: 'Lato',
-        fontSize: 30,
+        fontSize: 25,
         margin: 10,
-        color: colors.White,
-        justifyContent: 'center',
-        alignItems: 'center'
+        color: colors.White
     }
 })
