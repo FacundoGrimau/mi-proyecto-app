@@ -24,7 +24,7 @@ const ItemListCategory = ({categorySelected = "", setCategorySelected = () => {}
         const regexThreeOrMoreCharacters = /[a-zA-Z]{3,}/;
         const hasThreeOrMoreCharacters = (regexThreeOrMoreCharacters.test(keyWord));
         if (!hasThreeOrMoreCharacters && keyWord.length) {
-            setError(" ¡Ingresar tres o mas caracteres!")
+            setError("¡ Ingresar tres o mas caracteres !")
             return;
         }
 

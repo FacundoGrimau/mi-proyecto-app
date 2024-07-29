@@ -10,15 +10,12 @@ const Search = ({onSearch = () => {}, error = '', goBack = () => {}}) => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.inputContainer}>
-                <TextInput
-                    style={styles.input}
-                    placeholder='Buscar producto ...'
-                    value={keyword}
-                    onChangeText={setKeyword}
-                />
-                {error ? <Text style={styles.errorText}>{error}</Text> : null}
-            </View>
+            <TextInput
+                style={styles.input}
+                placeholder='Buscar producto ...'
+                value={keyword}
+                onChangeText={setKeyword}
+            />
             <Pressable onPress={() => onSearch(keyword)}>
                 <FontAwesome name="search" size={24} color="black"/>
             </Pressable>
@@ -40,14 +37,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         gap: 18,
-        padding: 15
-    },
-    inputContainer: {
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "start",
-        gap: 6,
-        width: "65%",
     },
     input: {
         width: 250,
@@ -56,11 +45,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
         backgroundColor: colors.lightGray,
         borderRadius: 10
-    },
-    errorText: {
-        fontFamily: 'Lato',
-        fontSize: 14, 
-        color: '#FF0000',
-        paddingTop: 5
     },
 });
