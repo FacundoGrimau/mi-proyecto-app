@@ -5,7 +5,7 @@
         "price": 89999,
         "stock": 50,
         "description": "Zapatillas deportivas con tecnología avanzada para máxima comodidad y rendimiento.",
-        "images": "https://sporting.vtexassets.com/arquivos/ids/1320320-800-800?v=638551788953830000&width=800&height=800&aspect=true",
+        "images": "https://ejemplo.com/imageses/fitness_flex.jpg",
         "waist": "42",
         "category": "Zapatillas"
     },
@@ -15,7 +15,7 @@
         "price": 170000,
         "stock": 30,
         "description": "Zapatillas de running resistentes con amortiguación superior.",
-        "images": "https://sporting.vtexassets.com/arquivos/ids/950624-800-800?v=638321272943830000&width=800&height=800&aspect=true",
+        "images": "https://ejemplo.com/imageses/fitness_flex.jpg",
         "waist": "44",
         "category": "Zapatillas"
     },
@@ -25,7 +25,7 @@
         "price": 210000,
         "stock": 30,
         "description": "Zapatillas de running ultraligeras con amortiguación superior.",
-        "images": "https://sporting.vtexassets.com/arquivos/ids/783795-800-800?v=638186197982700000&width=800&height=800&aspect=true",
+        "images": "https://ejemplo.com/imageses/fitness_flex.jpg",
         "waist": "44",
         "category": "Zapatillas"
     },
@@ -35,7 +35,7 @@
         "price": 239999,
         "stock": 20,
         "description": "Zapatillas de trail resistentes, perfectas para terrenos difíciles.",
-        "images": "https://sporting.vtexassets.com/arquivos/ids/1306832-800-800?v=638543347022700000&width=800&height=800&aspect=true",
+        "images": "https://ejemplo.com/imageses/fitness_flex.jpg",
         "waist": "43",
         "category": "Zapatillas"
     },
@@ -45,7 +45,7 @@
         "price": 85.75,
         "stock": 35,
         "description": "Zapatillas de entrenamiento con soporte avanzado para sesiones intensas.",
-        "images": "",
+        "images": "https://ejemplo.com/imageses/fitness_flex.jpg",
         "waist": "40",
         "category": "Zapatillas"
     },
