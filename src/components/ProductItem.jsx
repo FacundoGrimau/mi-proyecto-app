@@ -10,7 +10,7 @@ const ProductItem = ({ product }) => {
         <Image
           resizeMode="cover"
           style={styles.image}
-          source={{ uri: product.images[0] }}
+          source={{uri: product.images}}
         />
       </Card>
     );
