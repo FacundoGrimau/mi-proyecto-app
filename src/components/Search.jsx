@@ -46,4 +46,9 @@ const styles = StyleSheet.create({
         backgroundColor: colors.lightGray,
         borderRadius: 10
     },
+    errorText: {
+        color: colors.white,
+        fontSize: 16,
+        fontFamily: "Josefin",
+    },
 });

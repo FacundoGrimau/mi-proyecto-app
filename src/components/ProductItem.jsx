@@ -19,20 +19,29 @@ const ProductItem = ({ product }) => {
   export default ProductItem;
   
   const styles = StyleSheet.create({
-    image: {
-      height: 120,
-      width: 100,
-      borderRadius: 8,
-    },
     additionalStylesCard: {
       paddingLeft: 10,
       flexDirection: "row",
       height: 120,
-      width: 300,
+      width: "100%",
       justifyContent: "space-between",
       margin: 10,
     },
     textCategory: {
-      color: colors.green900,
+      fontSize: 16,
+      color: colors.White,
+      width: "70%"
     },
+    image: {
+      height: 120,
+      width: "30%",
+      borderRadius: 8,
+    },
+    pressable : {
+      width: "100%",
+      flexDirection: "row",
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingLeft: 10
+    }
   });
