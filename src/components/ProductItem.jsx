@@ -1,17 +1,22 @@
-import { Image, StyleSheet, Text } from 'react-native'
+import { Image, Pressable, StyleSheet, Text } from 'react-native'
 import React from 'react'
 import { colors } from '../global/colors'
 import Card from './Card'
 
-const ProductItem = ({ product }) => {
-    return (
+const ProductItem = ({ product, setItemSelected = () => {} }) => {
+  return (
       <Card style={styles.additionalStylesCard}>
-        <Text style={styles.textCategory}>{product.title}</Text>
-        <Image
-          resizeMode="cover"
-          style={styles.image}
-          source={{uri: product.images}}
-        />
+        <Pressable
+          style={styles.pressable}
+          onPress={() => setItemSelected(product.id)}
+        >
+          <Text style={styles.textCategory}>{product.title}</Text>
+          <Image
+            resizeMode="cover"
+            style={styles.image}
+            source={{uri: product.images}}
+          />
+        </Pressable>
       </Card>
     );
   };
@@ -20,21 +25,22 @@ const ProductItem = ({ product }) => {
   
   const styles = StyleSheet.create({
     additionalStylesCard: {
-      paddingLeft: 10,
       flexDirection: "row",
-      height: 120,
+      height: 130,
       width: "100%",
       justifyContent: "space-between",
       margin: 10,
     },
     textCategory: {
-      fontSize: 16,
+      fontSize: 18,
       color: colors.White,
-      width: "70%"
+      paddingLeft: 10,
+      width: "55%"
     },
     image: {
       height: 120,
-      width: "30%",
+      width: "35%",
+      marginRight: 25,
       borderRadius: 8,
     },
     pressable : {

@@ -10,21 +10,25 @@ const Search = ({onSearch = () => {}, error = '', goBack = () => {}}) => {
 
     return (
         <View style={styles.container}>
-            <TextInput
-                style={styles.input}
-                placeholder='Buscar producto ...'
-                value={keyword}
-                onChangeText={setKeyword}
-            />
-            <Pressable onPress={() => onSearch(keyword)}>
-                <FontAwesome name="search" size={24} color="black"/>
-            </Pressable>
-            <Pressable onPress={() => setKeyword("")}>
-                <FontAwesome6 name="eraser" size={24} color="black"/>
-            </Pressable>
-            <Pressable onPress={goBack}>
-                <AntDesign name="back" size={24} color="black"/>
-            </Pressable>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder='Buscar producto ...'
+                    value={keyword}
+                    onChangeText={setKeyword}
+                />
+                {error ? <Text style={styles.errorText}>{error}</Text> : null}
+            </View>
+                
+                <Pressable onPress={() => onSearch(keyword)}>
+                    <FontAwesome name="search" size={24} color="black"/>
+                </Pressable>
+                <Pressable onPress={() => setKeyword("")}>
+                    <FontAwesome6 name="eraser" size={24} color="black"/>
+                </Pressable>
+                <Pressable onPress={goBack}>
+                    <AntDesign name="back" size={24} color="black"/>
+                </Pressable> 
         </View>
     )
     }
@@ -33,9 +37,9 @@ export default Search
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
         gap: 18,
     },
     input: {
@@ -46,9 +50,17 @@ const styles = StyleSheet.create({
         backgroundColor: colors.lightGray,
         borderRadius: 10
     },
+    inputContainer: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'start',
+        gap: 4,
+        width: '60%',
+    },
     errorText: {
-        color: colors.white,
+        color: '#ff0000',
         fontSize: 16,
-        fontFamily: "Josefin",
+        fontFamily: 'Lato',
+        textAlign: 'center'
     },
 });
