@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useState } from 'react';
 import Header from './src/components/Header';
 import ItemListCategory from './src/screens/ItemListCategory';
+import ItemDetail from './src/screens/ItemDetail';
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
@@ -20,14 +21,24 @@ export default function App() {
   }, [fontsLoaded, fontError]);
 
   const [categorySelected, setCategorySelected] = useState('')
+  const [itemIdSelected, setItemIdSelected] = useState('')
 
   return (
     <View style={styles.container}>
       <Header title="Titulo"/>
       {!categorySelected ? (
         <Home setCategorySelected={setCategorySelected}/>
+      ) : !itemIdSelected ? (
+        <ItemListCategory 
+          setCategorySelected={setCategorySelected}
+          categorySelected={categorySelected}
+          setItemIdSelected={setItemIdSelected}
+        />
       ) : (
-        <ItemListCategory setCategorySelected={setCategorySelected} categorySelected={categorySelected}/>
+        <ItemDetail
+          idSelected={itemIdSelected}
+          setProductSelected={setItemIdSelected}
+        />
       )}
     </View>
   );

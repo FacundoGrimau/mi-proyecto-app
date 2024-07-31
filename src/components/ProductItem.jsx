@@ -3,12 +3,12 @@ import React from 'react'
 import { colors } from '../global/colors'
 import Card from './Card'
 
-const ProductItem = ({ product, setItemSelected = () => {} }) => {
+const ProductItem = ({ product, setItemIdSelected = () => {} }) => {
   return (
       <Card style={styles.additionalStylesCard}>
         <Pressable
           style={styles.pressable}
-          onPress={() => setItemSelected(product.id)}
+          onPress={() => setItemIdSelected(product.id)}
         >
           <Text style={styles.textCategory}>{product.title}</Text>
           <Image
