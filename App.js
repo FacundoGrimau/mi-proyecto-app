@@ -3,7 +3,6 @@ import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import Home from './src/screens/Home';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
-import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useState } from 'react';
 import Header from './src/components/Header';
 import ItemListCategory from './src/screens/ItemListCategory';
