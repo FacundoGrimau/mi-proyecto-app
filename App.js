@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import Home from './src/screens/Home';
 import { colors } from './src/global/colors';
 import { useFonts } from 'expo-font';
@@ -10,21 +10,19 @@ import ItemListCategory from './src/screens/ItemListCategory';
 import ItemDetail from './src/screens/ItemDetail';
 
 export default function App() {
+  const [categorySelected, setCategorySelected] = useState('')
+  const [itemIdSelected, setItemIdSelected] = useState('')
+
   const [fontsLoaded, fontError] = useFonts({
     'Lato': require('./assets/Lato-BoldItalic.ttf')
   })
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  const [categorySelected, setCategorySelected] = useState('')
-  const [itemIdSelected, setItemIdSelected] = useState('')
+  if (!fontsLoaded && !fontError) {
+    return null;
+  };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title="Titulo"/>
       {!categorySelected ? (
         <Home setCategorySelected={setCategorySelected}/>
@@ -40,7 +38,7 @@ export default function App() {
           setProductSelected={setItemIdSelected}
         />
       )}
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -48,7 +46,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.lightBlue,
-    marginTop: 50,
     alignItems: 'center',
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight: 0
   },
 });
