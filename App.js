@@ -7,6 +7,7 @@ import ItemListCategory from './src/screens/ItemListCategory';
 import ItemDetail from './src/screens/ItemDetail';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import Navigator from './src/navigation/Navigator';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -19,30 +20,10 @@ export default function App() {
   };
 
   return (
-    <>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName='Home'
-          screenOptions={({route})=> ({
-            header: ( )=> {
-              return (
-                <Header title={
-                  route.name === 'Home'
-                  ? 'Categorias'
-                  : route.name === 'ItemListCategory'
-                  ? route.params.category
-                  : 'Detalle del Producto'
-                }/>
-              )
-            }
-          })}
-          >
-          <Stack.Screen name='Home' component={Home}/>
-          <Stack.Screen name='ItemListCategory' component={ItemListCategory}/>
-          <Stack.Screen name='ItemDetail' component={ItemDetail}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
+    
+      <Navigator>
+
+      </Navigator>
   );
 }
 
