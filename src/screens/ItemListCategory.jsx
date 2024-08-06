@@ -6,12 +6,12 @@ import Search from '../components/Search'
 import { colors } from '../global/colors'
 import ProductItem from '../components/ProductItem'
 
-const ItemListCategory = ({categorySelected = "", setCategorySelected = () => {}, setItemIdSelected = () => {}}) => {
+const ItemListCategory = ({navigation, route}) => {
     const [keyWord, setKeyword] = useState('')
     const [productsFiltered, setProductsFiltered] = useState([])
     const [error, setError] = useState ('')
 
-    console.log(categorySelected);
+    const {category: categorySelected} = route.params
 
     useEffect(() => {
         const regexDigits= /\d/;
@@ -47,11 +47,11 @@ const ItemListCategory = ({categorySelected = "", setCategorySelected = () => {}
             <Search
                 error={error}
                 onSearch={setKeyword}
-                goBack={() => setCategorySelected("")}
+                goBack={() => navigation.goBack()}
             />
             <FlatList
                 data={productsFiltered}
-                renderItem={({item}) => <ProductItem product={item} setItemIdSelected={setItemIdSelected}/>}
+                renderItem={({item}) => <ProductItem product={item} navigation={navigation}/>}
                 keyExtractor={(producto) => producto.id}
             />
         </View>
