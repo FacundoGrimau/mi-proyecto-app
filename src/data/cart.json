@@ -1,0 +1,35 @@
+[
+    {
+        "id": 21,
+        "title": "Camiseta adidas Selección Argentina",
+        "price": 120999,
+        "stock": 50,
+        "description": "Ofrece comodidad gracias a su tejido suave con tecnología de absorción AEROREADY.",
+        "images": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd3625132/products/ADIP8402/ADIP8402-1.JPG",
+        "waist": "M",
+        "category": "Camisetas",
+        "quantity": 3
+    },
+    {
+        "id": 73,
+        "title": "Botines Puma Future",
+        "price": 159599,
+        "stock": 170,
+        "description": "Botines Puma Future con ajuste perfecto",
+        "images": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd2c25a74/products/PU107982-03/PU107982-03-1.JPG",
+        "waist": "44",
+        "category": "Botines",
+        "quantity": 1
+    },
+    {
+        "id": 96,
+        "title": "Medias Nike Classic",
+        "price": 10700,
+        "stock": 200,
+        "description": "Medias deportivas ideales para actividades de alto rendimiento",
+        "images": "https://www.dexter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw5ddefd76/products/NI_SX4120-001/NI_SX4120-001-1.JPG",
+        "waist": "M",
+        "category": "Accesorios",
+        "quantity": 4
+    }
+]
