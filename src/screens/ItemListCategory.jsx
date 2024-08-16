@@ -5,13 +5,16 @@ import products from '../data/products.json'
 import Search from '../components/Search'
 import { colors } from '../global/colors'
 import ProductItem from '../components/ProductItem'
+import { useGetProductsByCategoryQuery } from '../services/shopServices'
 
 const ItemListCategory = ({navigation, route}) => {
     const [keyWord, setKeyword] = useState('')
     const [productsFiltered, setProductsFiltered] = useState([])
     const [error, setError] = useState ('')
 
-    const {category: categorySelected} = route.params
+    const {category: categorySelected} = route.params;
+
+    const {data: productsFetched, error: errorFetched, isLoading} = useGetProductsByCategoryQuery(categorySelected);
 
     useEffect(() => {
         const regexDigits= /\d/;
@@ -28,19 +31,19 @@ const ItemListCategory = ({navigation, route}) => {
             return;
         }
 
-        console.log(error);
-
-        const productsPreFiltered = products.filter(
+        /*const productsPreFiltered = products.filter(
             (product) => product.category === categorySelected
-        )
+        )*/
 
-        const productsfilter = productsPreFiltered.filter(
+        if(!isLoading) {
+        const productsfilter = productsFetched.filter(
             (product) => product.title.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())
         )
-        console.log(productsfilter);
         setProductsFiltered(productsfilter)
         setError('')
-    }, [keyWord, categorySelected])
+        }
+
+    }, [keyWord, categorySelected, productsFetched, isLoading]);
 
     return (
         <View>
