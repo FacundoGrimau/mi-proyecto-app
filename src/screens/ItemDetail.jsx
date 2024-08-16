@@ -2,12 +2,16 @@ import { Button, Image, StyleSheet, Text, useWindowDimensions, View } from 'reac
 import React, { useEffect, useState } from 'react'
 //import allProducts from '../data/products.json'
 import { useGetProductByIdQuery } from '../services/shopServices';
+import { useDispatch } from 'react-redux';
+import { addCartItem } from '../fetures/Cart/CartSlice';
 
 const ItemDetail = ({navigation, route}) => {
     const [orientation, setOrientation] = useState('portrait');
     const {width, height} = useWindowDimensions();
     //const [product, setProduct] = useState(null);
     const {productoId: idSelected} = route.params;
+
+    const dispatch = useDispatch()
 
     const {data: product} = useGetProductByIdQuery(idSelected);
 
@@ -16,11 +20,10 @@ const ItemDetail = ({navigation, route}) => {
             else setOrientation('portrait')
     }, [width, height]);
 
-    /*useEffect(() => {
-        const productSelected = allProducts.find((product) => product.id === idSelected)
-
-        setProduct(productSelected);
-        }, [idSelected]);*/
+    const handleAddCart = () => {
+        dispatch(addCartItem) 
+        dispatch(addCartItem({...product, quantity: 1}))   
+    }
 
     return (
         <View>
@@ -38,7 +41,7 @@ const ItemDetail = ({navigation, route}) => {
                             <Text>{product.title}</Text>
                             <Text>{product.description}</Text>
                             <Text style={styles.price}>${product.price}</Text>
-                            <Button title='Agregar al Carrito'></Button>
+                            <Button title='Agregar al Carrito' onPress={handleAddCart}></Button>
                         </View>
                     </View>
                 ) : null}

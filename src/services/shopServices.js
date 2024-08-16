@@ -20,8 +20,15 @@ export const shopApi = createApi ({
                 const transformedResponse = Object.values(res);
                 if (transformedResponse.length) return transformedResponse [0];
             }
-        }), 
-    })
-})
+        }),
+        postOrder: builder.mutation({
+            query: ({...order}) => ({
+                url: `orders.json`,
+                method: "POST",
+                body: order,
+            }),
+        }),
+    }),
+});
 
-export const { useGetCategoriesQuery, useGetProductsByCategoryQuery, useGetProductByIdQuery } = shopApi;
+export const { useGetCategoriesQuery, useGetProductsByCategoryQuery, useGetProductByIdQuery, usePostOrderMutation } = shopApi;

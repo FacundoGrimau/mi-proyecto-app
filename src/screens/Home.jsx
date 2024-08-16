@@ -11,7 +11,7 @@ const Home = ({navigation, route}) => {
     
     return (
         <View style={styles.flatListContainer}>
-            <Counter/>
+            {/*<Counter/>*/}
             <FlatList
                 showsVerticalScrollIndicator={false}
                 keyExtractor={category => category}

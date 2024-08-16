@@ -1,13 +1,17 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import CartData from '../data/cart.json'
 import CartItem from '../components/CartItem';
+import { useSelector } from 'react-redux';
+import { usePostOrderMutation } from '../services/shopServices';
 
 const Cart = () => {
+    const {items: CartData, total} = useSelector((state) => state.cart.value)
 
-    const total = CartData.reduce(
-        (acc, currentItem) => (acc += currentItem.price * currentItem.quantity),
-        0
-    );
+    const [triggerPostOrder, result] = usePostOrderMutation()
+
+    const onConfirmOrder = () => {
+        triggerPostOrder({items: CartData, user: "Messi", total})
+    }
 
     return (
         <View style={styles.container}>
@@ -19,9 +23,9 @@ const Cart = () => {
                 keyExtractor={(producto) => producto.id}
             />
 
-            <View>
-                <Pressable>
-                    <Text>Orden Confirmada</Text>
+            <View style={styles.totalContainer}>
+                <Pressable onPress={onConfirmOrder}>
+                    <Text>Confirmar Orden</Text>
                 </Pressable>
                 <Text>Total: $ {total}</Text>
             </View>
@@ -29,12 +33,17 @@ const Cart = () => {
     )
 }
 
-export default Cart
+export default Cart;
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'space-between',
+        justifyContent: "space-between",
         flex: 1,
-        marginBottom: 100
-    }
-})
+        marginBottom: 100,
+    },
+    totalContainer: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+});
