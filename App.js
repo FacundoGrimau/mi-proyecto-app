@@ -8,6 +8,8 @@ import ItemDetail from './src/screens/ItemDetail';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigator from './src/navigation/Navigator';
+import { Provider } from 'react-redux';
+import store from './src/store/Index';
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -20,10 +22,9 @@ export default function App() {
   };
 
   return (
-    
-      <Navigator>
-
-      </Navigator>
+    <Provider store={store}>
+      <Navigator/>
+    </Provider>
   );
 }
 

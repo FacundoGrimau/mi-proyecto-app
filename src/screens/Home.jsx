@@ -3,10 +3,12 @@ import React from 'react'
 import categories from '../data/categories.json'
 import CategoryItem from '../components/CategoryItem'
 import { colors } from '../global/colors'
+import Counter from '../components/Counter'
 
 const Home = ({navigation, route}) => {
     return (
         <View style={styles.flatListContainer}>
+            <Counter/>
             <FlatList
                 keyExtractor={category => category}
                 data={categories}
@@ -16,9 +18,9 @@ const Home = ({navigation, route}) => {
             />
         </View>
     )
-}
+};
 
-export default Home
+export default Home;
 
 const styles = StyleSheet.create({
     flatListContainer: {
