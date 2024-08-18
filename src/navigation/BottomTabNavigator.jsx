@@ -10,6 +10,8 @@ import { colors } from '../global/colors';
 import Fontisto from '@expo/vector-icons/Fontisto';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import MyProfileStackNavigator from './MyProfileStackNavigator';
 
 const Tab = createBottomTabNavigator() 
 
@@ -59,6 +61,19 @@ const BottomTabNavigator = () => {
               </View>
             )
         }}}
+      />
+      <Tab.Screen
+        name='My Buttom Profile'
+        component={MyProfileStackNavigator}
+        options={{
+          tabBarIcon: ({focused}) => {
+            return (
+              <View>
+                <FontAwesome name="user" size={24} color={focused ? "black" : colors.lightBlue}/>
+            </View>
+            )
+          }
+        }}
       />
     </Tab.Navigator>
   )

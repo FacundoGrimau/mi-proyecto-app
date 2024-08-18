@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import HomeStackNavigator from './HomeStackNavigator';
 import BottomTabNavigator from './BottomTabNavigator';
 import AuthStackNavigator from './AuthStackNavigator';
 import { useSelector } from 'react-redux';
@@ -9,9 +10,9 @@ const Navigator = () => {
 
   return (
     <NavigationContainer>
-        {/* <HomeStackNavigator/> */}
-        {/* <BottomTabNavigator/> */}
-        {user ? <BottomTabNavigator/> : <AuthStackNavigator/>}
+        {/*<HomeStackNavigator/>*/}
+        <BottomTabNavigator/>
+        {/* {user ? <BottomTabNavigator/> : <AuthStackNavigator/>}  */}
     </NavigationContainer>
   )
 }
